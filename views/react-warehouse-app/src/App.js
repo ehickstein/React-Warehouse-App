@@ -12,8 +12,10 @@ class App extends Component {
     return (
       <div>
         <Navbar></Navbar>
-        
-
+        <Product></Product>
+        <Row></Row>
+        <Section></Section>
+        <Warehouse></Warehouse>
       </div>
     );
   }
