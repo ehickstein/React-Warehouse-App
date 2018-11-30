@@ -1,0 +1,27 @@
+{
+  "name": "React-Warehouse-App",
+  "version": "1.0.0",
+  "description": "React-Warehouse-App Coding Bootcamp Final Project",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ehickstein/React-Warehouse-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ehickstein/React-Warehouse-App/issues"
+  },
+  "homepage": "https://github.com/ehickstein/React-Warehouse-App#readme"
+}
