@@ -3,13 +3,15 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema
 
 var WarehouseSchema = new Schema({
-    location: {
+    Location: {
         type: String
     },
-    sections: {
+    Sections: [ 
+    {
         type: Schema.Types.ObjectId,
         ref: "Sections"
     }
+]
 })
 
 var Warehouse = mongoose.model("Warehouse", WarehouseSchema)

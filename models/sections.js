@@ -4,13 +4,13 @@ var Schema = mongoose.Schema
 
 var SectionsSchema = new Schema({
     Section: {
-        type: Integer,
+        type: Number,
         required: true
     },
-    aisles: {
+    Aisles: [{
         type: Schema.Types.ObjectId,
         ref: "Aisles"
-    }
+    }]
 })
 
 var Sections = mongoose.model("Sections", SectionsSchema)
