@@ -4,13 +4,15 @@ var Schema = mongoose.Schema
 
 var AisleSchema = new Schema({
     Aisle: {
-        type: Integer,
+        type: String,
         required: true
     },
-    Items: {
-        type: Schema.Types.ObjectId,
-        ref: "Items"
-    }
+    Items: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Item"
+        }
+    ]
 })
 
 var Aisle = mongoose.model("Aisle", AisleSchema)
