@@ -5,8 +5,8 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Warehouse from './components/Warehouse';
 import Section from './components/Section';
-import Row from './components/Row';
-import Product from './components/Product';
+import Aisle from './components/Aisle';
+import Items from './components/Items';
 
 
 class App extends Component {
@@ -18,9 +18,9 @@ class App extends Component {
           <Route exact path='/' component={Login} />
           <Route exact path='/warehouses' component={Warehouse} />
           <Route exact path='/sections' component={Section} />
-          <Route exact path='/rows' component={Row} />
-          <Route exact path='/products' component={Product} />
-          <Route path='/products/:id' component={Product} />
+          <Route exact path='/aisles' component={Aisle} />
+          <Route exact path='/items' component={Items} />
+          <Route path='/items/:id' component={Items} />
         </div>
       </Router>
     );
