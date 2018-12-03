@@ -29,7 +29,7 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-    app.post('/register', passport.authenticate('local'), registration.reg );
+    app.post('/register', registration.reg );
 
 app.listen(3000);
 console.log('Server running at 3000');
