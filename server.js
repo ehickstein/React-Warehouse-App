@@ -28,8 +28,8 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-    app.post('/register', passport.authenticate('local'), registration.reg );
-    require("./routes/api-routes.js")(app);
+    app.post('/register', registration.reg );
+    require("./models")
 
 app.listen(3000);
 console.log('Server running at 3000');
