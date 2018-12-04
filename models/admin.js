@@ -4,11 +4,11 @@ var Schema = mongoose.Schema
 
 var AdminSchema = new Schema({
     Username: {
-        type: Text,
+        type: String,
         required: true
     },
     Password: {
-        type: Text,
+        type: String,
         required: true
     }
 })

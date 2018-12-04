@@ -9,6 +9,6 @@ var ItemSchema = new Schema({
     },
 })
 
-var Item = mongoose.model("Aisle", ItemSchema)
+var Item = mongoose.model("Item", ItemSchema)
 
 module.exports = Item

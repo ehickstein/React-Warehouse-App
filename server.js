@@ -1,4 +1,3 @@
-
 const express = require("express")
 const passport = require('passport')
 const bodyParser = require('body-parser');
@@ -30,6 +29,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
     app.post('/register', registration.reg );
+    require("./models")
 
 app.listen(3000);
 console.log('Server running at 3000');
