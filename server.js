@@ -33,6 +33,7 @@ passport.deserializeUser(User.deserializeUser());
     app.post('/login', passport.authenticate('local'), function(req,res){
         res.json("sucess")
     })
+    require("./routes/api-routes.js")(app)
 
 app.listen(3000);
 console.log('Server running at 3000');

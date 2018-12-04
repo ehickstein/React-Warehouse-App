@@ -12,24 +12,11 @@ mongoose.connect("mongodb://localhost/warehouse-app", { useNewUrlParser: true })
 
 module.exports = function(app) {
     
-    // db.Sections.create({ Section: "C"})
-    //     .then(function(dbSection){
-    //         console.log(dbSection)
-    //         return db.Warehouses.findOneAndUpdate({_id: "5c056ced7937e41d3c2bae3c"}, {$push: {Sections: dbSection._id}}, {new: true})
-    //     })
-    // db.Aisles.create({ Aisle: "1"})
-    //     .then(function(dbAisles){
-    //         console.log(dbAisles)
-    //         return db.Sections.findOneAndUpdate({_id: "5c056ef09fc3eb218ccc7941"}, {$push: {Aisles: dbAisles._id}}, {new: true})
-    //     })
-    // db.Items.create({ Item: "T2530"})
-    //     .then(function(dbItems){
-    //         console.log(dbItems)
-    //         return db.Aisles.findOneAndUpdate({ _id: "5c057a4b12226a0980121c5f"}, {$push: {Items: dbItems._id}}, {new: true})
-    //     })
+
     //Create an POST request for when the admin wants to create a new warehouse
     app.post("/warehouses/create", function(req, res) {
-        db.Warehouses.create({ Location: req.body})
+        // This creates the waarehousee in the database.
+        db.Warehouses.create({ Location: req.body.Location})
         .then(function(dbWarehouse){
             console.log(dbWarehouse)
         })
@@ -42,11 +29,16 @@ module.exports = function(app) {
     
 
     //Create a POST request for when the admin wants to create a new section
-    app.post("/warehouses/:id", function(req, res) {
-        db.Sections.create({ Section: req.body})
+    app.post("/warehouses/:warehouseId", function(req, res) {
+        // This creates the Section within the database.  Upon creation, it is not linked with the Warehouse it is in,
+        // However, the following function is what links it.
+        db.Sections.create({ Section: req.body.Section})
         .then(function(dbSections){
             console.log(dbSections)
-            return db.Warehouses.findOneAndUpdate({_id: req.params.id}, {$push: {Sections: dbSections._id}}, {new: true})
+            // This return statement links the section we just created with the correlating warehouse.  It finds the 
+            // Warehousee with the id of req.params.warehouseId (The id of the warehousee we're in.) and then 
+            // Pushes into the section array, the _id of the section we just created
+            return db.Warehouses.findOneAndUpdate({_id: req.params.warehouseId}, {$push: {Sections: dbSections._id}}, {new: true})
         })
         .then(function(dbWarehouse){
             res.json(dbWarehouse)
@@ -58,11 +50,12 @@ module.exports = function(app) {
 
 
     //Create a POST request for when the admin wants to create a new aisle
-    app.post("/warehouses/:warehouseId/sections/:id", function(req, res) {
-        db.Aisles.create({ Aisle: req.body})
+    // For an explanation on how this post request works, see the previous post request, the functionality is the same.
+    app.post("/sections/:sectionId", function(req, res) {
+        db.Aisles.create({ Aisle: req.body.Aisle})
         .then(function(dbAisle){
             console.log(dbAisle)
-            return db.Sections.findOneAndUpdate({_id: req.params.id}, {$push: {Aisles: dbAisle._id}}, {new: true})
+            return db.Sections.findOneAndUpdate({_id: req.params.sectionId}, {$push: {Aisles: dbAisle._id}}, {new: true})
         })
         .then(function(dbSections){
             res.json(dbSections)
@@ -74,11 +67,12 @@ module.exports = function(app) {
 
 
     //Create a POST request for when the admin wants to create a new item
-    app.post("/warehouses/:warehouseId/sections/:sectionId/aisles/:id", function(req, res) {
-        db.Items.create({ Item: req.body})
+    // For an explanation on how this post request works, see the previous post request, the functionality is the same.
+    app.post("/aisles/:aisleId", function(req, res) {
+        db.Items.create({ Item: req.body.Item})
         .then(function(dbItem){
             console.log(dbItem)
-            return db.Aisles.findOneAndUpdate({_id: req.params.id}, {$push: {Items: dbItem._id}}, {new: true})
+            return db.Aisles.findOneAndUpdate({_id: req.params.aisleId}, {$push: {Items: dbItem._id}}, {new: true})
         })
         .then(function(dbAisle){
             res.json(dbAisle)
