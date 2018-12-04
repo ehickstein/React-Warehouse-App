@@ -29,7 +29,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
     app.post('/register', registration.reg );
-    require("./models")
+    require("./routes/api-routes.js")(app)
 
 app.listen(3000);
 console.log('Server running at 3000');
