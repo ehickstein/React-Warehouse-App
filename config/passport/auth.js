@@ -16,14 +16,13 @@ module.exports = function(passport) {
 			`);
 	});
 	router.post('/login',
-		passport.authenticate('local'), //this is the magic
-	  	function(req, res) {
-		    // If this function gets called, authentication was successful.
-		    // `req.user` contains the authenticated user.
-			//res.sendFile()
-			
-		    res.json({success:(req.user? "Yes":"No"), user:req.user});
-		}
+	 User.authenticate()(req.query.username, req.query.password, function(err, result) {
+		  if (err) { 
+			  console.log(err)
+		   }
+	  
+		  // Value 'result' is set to false. The user could not be authenticated since the user is not active
+		})
 	)
 
 

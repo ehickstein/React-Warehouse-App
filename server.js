@@ -30,6 +30,9 @@ passport.deserializeUser(User.deserializeUser());
 
     app.post('/register', registration.reg );
     require("./models")
+    app.post('/login', passport.authenticate('local'), function(req,res){
+        res.json("sucess")
+    })
 
 app.listen(3000);
 console.log('Server running at 3000');
