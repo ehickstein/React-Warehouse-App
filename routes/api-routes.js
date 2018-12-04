@@ -42,11 +42,11 @@ module.exports = function(app) {
     
 
     //Create a POST request for when the admin wants to create a new section
-    app.post("/warehouses/:id", function(req, res) {
+    app.post("/warehouses/:warehouseId", function(req, res) {
         db.Sections.create({ Section: req.body})
         .then(function(dbSections){
             console.log(dbSections)
-            return db.Warehouses.findOneAndUpdate({_id: req.params.id}, {$push: {Sections: dbSections._id}}, {new: true})
+            return db.Warehouses.findOneAndUpdate({_id: req.params.warehouseId}, {$push: {Sections: dbSections._id}}, {new: true})
         })
         .then(function(dbWarehouse){
             res.json(dbWarehouse)
@@ -58,11 +58,11 @@ module.exports = function(app) {
 
 
     //Create a POST request for when the admin wants to create a new aisle
-    app.post("/warehouses/:warehouseId/sections/:id", function(req, res) {
+    app.post("/sections/:sectionId", function(req, res) {
         db.Aisles.create({ Aisle: req.body})
         .then(function(dbAisle){
             console.log(dbAisle)
-            return db.Sections.findOneAndUpdate({_id: req.params.id}, {$push: {Aisles: dbAisle._id}}, {new: true})
+            return db.Sections.findOneAndUpdate({_id: req.params.sectionId}, {$push: {Aisles: dbAisle._id}}, {new: true})
         })
         .then(function(dbSections){
             res.json(dbSections)
@@ -74,11 +74,11 @@ module.exports = function(app) {
 
 
     //Create a POST request for when the admin wants to create a new item
-    app.post("/warehouses/:warehouseId/sections/:sectionId/aisles/:id", function(req, res) {
+    app.post("/aisles/:aisleId", function(req, res) {
         db.Items.create({ Item: req.body})
         .then(function(dbItem){
             console.log(dbItem)
-            return db.Aisles.findOneAndUpdate({_id: req.params.id}, {$push: {Items: dbItem._id}}, {new: true})
+            return db.Aisles.findOneAndUpdate({_id: req.params.aisleId}, {$push: {Items: dbItem._id}}, {new: true})
         })
         .then(function(dbAisle){
             res.json(dbAisle)
