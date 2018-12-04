@@ -29,6 +29,10 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
     app.post('/register', registration.reg );
+    require("./models")
+    app.post('/login', passport.authenticate('local'), function(req,res){
+        res.json("sucess")
+    })
     require("./routes/api-routes.js")(app)
 
 app.listen(3000);
