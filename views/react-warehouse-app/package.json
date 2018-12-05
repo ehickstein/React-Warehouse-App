@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm i react-redux && react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -24,7 +24,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "react-redux": "^5.1.1",
+    "react-redux": "^6.0.0",
     "redux": "^4.0.1"
   },
   "proxy": "http://localhost:3001"
