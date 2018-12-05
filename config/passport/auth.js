@@ -15,17 +15,6 @@ module.exports = function(passport) {
 
 			`);
 	});
-	// router.post('/login', function(req,res) {
-	//  User.authenticate()(req.query.username, req.query.password, function(err, result) {
-	// 	  if (err) { 
-	// 		  console.log(err)
-	// 	   }
-	//   res.json(result)
-	// 	})
-	// })
-	router.post('/login', passport.authenticate('local'), function(req, res) {
-		res.redirect('/');
-	  });
 
 	//use this route to test the user
 
