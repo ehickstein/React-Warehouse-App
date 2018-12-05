@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
     mongoose.connect('mongodb://localhost/warehouse-app')
 const passportLocalMongoose = require('passport-local-mongoose');
-
 let db = mongoose.connection;
 let Schema = mongoose.Schema
 
