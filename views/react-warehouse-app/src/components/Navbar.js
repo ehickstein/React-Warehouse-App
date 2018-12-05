@@ -23,15 +23,15 @@ const Navbar = () => {
             >Tasks
           </Link>
         </li>
-        {/* <li className="tab col s3">
+        <li className="tab col s3">
           <Link
-            to="/Login???"
+            to="/login"
               className={
-                window.location.pathname === "/Login???" ? "active" : ""
+                window.location.pathname === "/" ? "active" : ""
               }
             >Login
           </Link>
-        </li> */}
+        </li>
       </ul>
     </div>
   </div>
