@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStore} from 'redux';
-import rootReducer from '../reducers/index';
+import rootReducer, { initialState } from '../reducers/index';
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, initialState);
 
 export default store;
