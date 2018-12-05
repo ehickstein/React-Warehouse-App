@@ -8,6 +8,19 @@ const checkLogin = (req,res,next)=>{
 		res.send(403, "Please Log in");
 	}
 }
+
+const requiresAdmin = function() {
+	return [
+	  ensureLoggedIn('/login'),
+	  function(req, res, next) {
+		if (req.user && req.user.isAdmin === true)
+		  next();
+		else
+		  res.send(401, 'Unauthorized');
+	  }
+	]
+  };
+  
 module.exports = function(passport) {
 	router.get('/login',	  	function(req, res) {
 		res.send(`
