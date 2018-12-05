@@ -11,7 +11,7 @@ const Navbar = () => {
                         className={
                             window.location.pathname === "/warehouses" ? "active" : ""
                         }
-                    >Home
+                    >Warehouses
                     </Link>
                 </li>
                 <li className="tab col s3">
@@ -20,7 +20,7 @@ const Navbar = () => {
                         className={
                             window.location.pathname === "/tasks" ? "active" : ""
                         }
-                    >Home
+                    >Tasks
                     </Link>
                 </li>
             </ul>

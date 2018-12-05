@@ -4,7 +4,7 @@ var Schema = mongoose.Schema
 
 var SectionsSchema = new Schema({
     Section: {
-        type: Integer,
+        type: VarChar,
         required: true
     },
     aisles: {
