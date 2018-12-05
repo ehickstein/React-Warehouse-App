@@ -30,6 +30,10 @@ module.exports = function(passport) {
 	});
 
 	//use this route to test the user
+	
+	router.post('/login', passport.authenticate('local'), function(req, res) {
+		    res.redirect('/');
+	});
 
 	router.get('/testuser',
 		// passport.authenticate('local'),
