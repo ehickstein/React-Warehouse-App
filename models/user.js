@@ -1,18 +1,17 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+    mongoose.connect('mongodb://localhost/warehouse-app')
+const passportLocalMongoose = require('passport-local-mongoose');
 
-var Schema = mongoose.Schema
+let db = mongoose.connection;
+let Schema = mongoose.Schema
 
-var UserSchema = new Schema({
-    Username: {
-        type: Text,
+let UserSchema = new Schema({
+    username: {
+        type: String,
         required: true
     },
-    Password: {
-        type: Text,
-        required: true
-    }
 })
-
-var User = mongoose.model("User", UserSchema)
+UserSchema.plugin(passportLocalMongoose);
+let User = mongoose.model("User", UserSchema)
 
 module.exports = User
