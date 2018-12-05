@@ -47,5 +47,5 @@ passport.deserializeUser(User.deserializeUser());
     require("./models")
     require("./routes/api-routes.js")(app)
     app.use(require('./config/passport/auth')(passport))
-app.listen(3000);
-console.log('Server running at 3000');
+app.listen(3001);
+console.log('Server running at 3001');
