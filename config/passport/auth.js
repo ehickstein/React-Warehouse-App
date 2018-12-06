@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const User = require('../../models/user');
-const { adminAction, userAction }  = require('../../views/react-warehouse-app/src/redux/actions');
+import { adminAction, userAction } from '../../views/react-warehouse-app/src/redux/actions';
 const store = require('../../views/react-warehouse-app/src/redux/store');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
 const checkLogin = (req,res,next)=>{
