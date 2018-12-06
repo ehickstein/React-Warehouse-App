@@ -6,4 +6,7 @@ let userAction = {
       type: 'USER'
     }
 
-export const adminAction, userAction;
+module.exports = {
+  adminAction: adminAction,
+  userAction: userAction
+}

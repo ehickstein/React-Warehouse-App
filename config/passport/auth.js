@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const User = require('../../models/user');
-import {adminAction, userAction} from '../../views/react-warehouse-app/src/redux/actions';
+var Actions = require('../../views/react-warehouse-app/src/redux/actions');
 const store = require('../../views/react-warehouse-app/src/redux/store');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
 const checkLogin = (req,res,next)=>{
@@ -17,11 +17,11 @@ const requiresAdmin = function() {
 	  function(req, res, next) {
       if (req.user && req.user.isAdmin === true){
         next();
-        store.dispatch(adminAction())
+        store.dispatch(Actions.adminAction)
       }
       else{
         res.send(401, 'Unauthorized');
-        store.dispatch(userAction())
+        store.dispatch(Actions.userAction)
       }
     }
   ]
