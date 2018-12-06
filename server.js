@@ -4,11 +4,13 @@ const bodyParser = require('body-parser');
 const validator = require('express-validator');
 const cookieParser = require('cookie-parser');
 const session = require('cookie-session');
+const path = require('path');
 
 const expressSession = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const registration = require('./config/passport/register');
 const User = require('./models/user');
+const port = process.env.PORT || 3001;
 
 let app = express()
 .use(bodyParser.urlencoded({ extended: false }))
@@ -47,5 +49,12 @@ passport.deserializeUser(User.deserializeUser());
     require("./models")
     require("./routes/api-routes.js")(app)
     app.use(require('./config/passport/auth')(passport))
-app.listen(3000);
-console.log('Server running at 3000');
+
+app.use(express.static(path.join(__dirname, 'react-warehouse-app', 'build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'react-warehouse-app', 'build', 'index.html'))
+});
+
+app.listen(port);
+console.log('Server running at 3001');

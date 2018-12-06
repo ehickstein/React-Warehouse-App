@@ -81,6 +81,38 @@ module.exports = function(app) {
     })
 
 
+    // app.delete is pretty self explanatory.  All we need to do is get the id of the warehouse/section/aisle/item that
+    // we want to delete, put it in the request link, and then it will delete that item.
+    app.delete("/deleteWarehouse/:warehouseId", function(req, res){
+        db.Warehouses.deleteOne({ _id: req.params.warehouseId})
+        .catch(function(err){
+            console.log(err.message)
+        })
+    })
+
+
+    app.delete("/deleteSection/:sectionId", function(req, res){
+        db.Sections.deleteOne({ _id: req.params.sectionId})
+        .catch(function(err){
+            console.log(err.message)
+        })
+    })
+
+
+    app.delete("/deleteAisle/:aisleId", function(req, res){
+        db.Aisles.deleteOne({ _id: req.params.aisleId})
+        .catch(function(err){
+            console.log(err.message)
+        })
+    })
+
+
+    app.delete("/deleteItem/:itemId", function(req, res){
+        db.Items.deleteOne({ _id: req.params.itemId})
+        .catch(function(err){
+            console.log(err.message)
+        })
+    })
 
     //Create all GET requests for displaying the warehouses---items
 
@@ -142,21 +174,19 @@ module.exports = function(app) {
         })
     })
 
+
     // Trying to make a search request so we can have a search bar.
-    app.get("/search", function(req, res){
-        db.Items.findOne({Item: "SunFlare X4200"})
+    app.get("/search/:itemSearch", function(req, res){
+        db.Items.findOne({Item: itemSearch})
         .then(function(dbItem){
             let item = dbItem.Item
-            console.log("-------------------\n"+dbItem)
             db.Aisles.findOne({ Items: dbItem._id})
             .then(function(dbAisle){
                 let aisle = dbAisle.Aisle
-                console.log(dbAisle)
                 db.Sections.findOne({ Aisles: dbAisle._id})
                 .then(function(display){
                     let section = display.Section
-                    console.log("------------------\n"+display)
-                    console.log("-------------------------\n Section: "+section+" Aisle: "+aisle+" Item: "+item)
+                    console.log("Section: "+section+" Aisle: "+aisle+" Item: "+item)
                     res.json(section, aisle, item)
                 })
             })
