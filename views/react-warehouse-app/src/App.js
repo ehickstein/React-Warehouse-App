@@ -5,9 +5,9 @@ import Login from './components/Login';
 import AdminWarehouse from './components/AdminComponents/Warehouse';
 import AdminSection from './components/AdminComponents/Section';
 import AdminItems from './components/AdminComponents/Items';
-import UserWarehouse from './components/UserComponents/UserWarehouse';
-import UserSection from './components/UserComponents/UserSection';
-import UserItems from './components/UserComponents/UserItems';
+import UserWarehouse from './components/UserComponents/Warehouse';
+import UserSection from './components/UserComponents/Section';
+import UserItems from './components/UserComponents/Items';
 import store from './redux/store';
 import { admin } from './redux/constants';
 
