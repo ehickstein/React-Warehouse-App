@@ -49,11 +49,11 @@ passport.deserializeUser(User.deserializeUser());
     require("./routes/api-routes.js")(app)
     app.use(require('./config/passport/auth')(passport))
 
-app.use(express.static(path.join(__dirname, 'react-warehouse-app', 'build')));
+app.use(express.static(path.join(__dirname, 'views/react-warehouse-app/build')));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'react-warehouse-app', 'build', 'index.html'))
+  res.sendFile(path.join(__dirname, 'views/react-warehouse-app/build/index.html'))
 });
 
 app.listen(port);
-console.log('Server running at 3001');
+console.log(`Server running at port ${port}`);
