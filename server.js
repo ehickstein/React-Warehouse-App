@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const validator = require('express-validator');
 const cookieParser = require('cookie-parser');
 const session = require('cookie-session');
+const path = require('path');
 
-const expressSession = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const registration = require('./config/passport/register');
 const User = require('./models/user');
