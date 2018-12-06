@@ -37,8 +37,10 @@ let adminState = () => {
 const App = () => {
   return (
     <Router>
+      <div>
         <Route exact path='/' component={Login} />
         ${adminState()}
+      </div>
     </Router>
   )
 }
