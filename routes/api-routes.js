@@ -6,7 +6,7 @@ var db = require("../models");
 var app = express();
 
 
-mongoose.connect("mongodb://localhost/warehouse-app", { useNewUrlParser: true });
+mongoose.connect("mongodb://admin:admin1@ds117111.mlab.com:17111/heroku_1h8vs51d", { useNewUrlParser: true });
 
 
 

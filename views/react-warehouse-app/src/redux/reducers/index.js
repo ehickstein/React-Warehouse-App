@@ -1,6 +1,6 @@
 import {admin, user} from '../constants/action-types';
 const initialState = {
-  permissions: user
+  permissions: admin
 };
 
 const rootReducer = (state = initialState, action) => {

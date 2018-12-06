@@ -1,5 +1,7 @@
 const router = require('express').Router()
 const User = require('../../models/user');
+const { adminAction, userAction }  = require('../../views/react-warehouse-app/src/redux/actions');
+const store = require('../../views/react-warehouse-app/src/redux/store');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
 const checkLogin = (req,res,next)=>{
 	if (req.user) next();
@@ -13,13 +15,17 @@ const requiresAdmin = function() {
 	return [
 	  ensureLoggedIn('/login'),
 	  function(req, res, next) {
-		if (req.user && req.user.isAdmin === true)
-		  next();
-		else
-		  res.send(401, 'Unauthorized');
-	  }
-	]
-  };
+      if (req.user && req.user.isAdmin === true){
+        next();
+        store.dispatch(adminAction())
+      }
+      else{
+        res.send(401, 'Unauthorized');
+        store.dispatch(userAction())
+      }
+    }
+  ]
+}
   
 module.exports = function(passport) {
 	router.get('/login',	  	function(req, res) {
@@ -62,4 +68,4 @@ module.exports = function(passport) {
 
 	return router;
 
-}
+};
