@@ -15,4 +15,4 @@ function userAction(){
   )
 }
 
-export default { adminAction, userAction };
+module.exports = { adminAction, userAction };
