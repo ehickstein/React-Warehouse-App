@@ -1,13 +1,11 @@
-import { admin, user} from '../constants/action-types';
-
 export const adminAction = () => (
   {
-    type: admin
+    type: 'ADMIN'
   }
 )
 
 export const userAction = () => (
   {
-    type: user
+    type: 'USER'
   }
 )
