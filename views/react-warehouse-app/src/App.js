@@ -9,7 +9,7 @@ import UserWarehouse from './components/UserComponents/Warehouse';
 import UserSection from './components/UserComponents/Section';
 import UserItems from './components/UserComponents/Items';
 import store from './redux/store';
-import { admin } from './redux/constants';
+import { admin } from './redux/constants/action-types';
 
 
 const App = () => {
