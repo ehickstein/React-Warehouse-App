@@ -14,20 +14,24 @@ import { admin } from './redux/constants/action-types';
 
 let adminState = () => {
   if (store.getState() === admin){
-    <div>
-      <Route exact path='/warehouses/:warehouseId' component={AdminWarehouse} />
-      <Route exact path='/sections/:sectionId' component={AdminSection} />
-      <Route exact path='/items' component={AdminItems} />
-      <Route path='/items/:id' component={AdminItems} />
-    </div>
+    return(
+      <div>
+        <Route exact path='/warehouses/:warehouseId' component={AdminWarehouse} />
+        <Route exact path='/sections/:sectionId' component={AdminSection} />
+        <Route exact path='/items' component={AdminItems} />
+        <Route path='/items/:id' component={AdminItems} />
+      </div>
+    )
   }
   else {
-    <div>
-      <Route exact path='/warehouses/:warehouseId' component={UserWarehouse} />
-      <Route exact path='/sections/:sectionId' component={UserSection} />
-      <Route exact path='/items' component={UserItems} />
-      <Route path='/items/:id' component={UserItems} />
-    </div>
+    return(
+      <div>
+        <Route exact path='/warehouses/:warehouseId' component={UserWarehouse} />
+        <Route exact path='/sections/:sectionId' component={UserSection} />
+        <Route exact path='/items' component={UserItems} />
+        <Route path='/items/:id' component={UserItems} />
+      </div>
+    )
   }
 }
 const App = () => {
