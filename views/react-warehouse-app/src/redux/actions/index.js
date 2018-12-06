@@ -1,18 +1,10 @@
 
-function adminAction(){
-  return(
-    {
+let adminAction = {
       type: 'ADMIN'
     }
-  )
-}
 
-function userAction(){
-  return(
-    {
+let userAction = {
       type: 'USER'
     }
-  )
-}
 
-module.exports = { adminAction, userAction };
+export const adminAction, userAction;
