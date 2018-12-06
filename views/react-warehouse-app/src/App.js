@@ -12,33 +12,31 @@ import store from './redux/store';
 import { admin } from './redux/constants/action-types';
 
 
-const App = () => {
-  if (store.getState() == admin){
-    return (
-      <Router>
-        <div>
-          <Route exact path='/' component={Login} />
-          <Route exact path='/warehouses/:warehouseId' component={AdminWarehouse} />
-          <Route exact path='/sections/:sectionId' component={AdminSection} />
-          <Route exact path='/items' component={AdminItems} />
-          <Route path='/items/:id' component={AdminItems} />
-        </div>
-      </Router>
-    )
+let adminState = () => {
+  if (store.getState() === admin){
+    <div>
+      <Route exact path='/warehouses/:warehouseId' component={AdminWarehouse} />
+      <Route exact path='/sections/:sectionId' component={AdminSection} />
+      <Route exact path='/items' component={AdminItems} />
+      <Route path='/items/:id' component={AdminItems} />
+    </div>
   }
   else {
-    return (
-      <Router>
-        <div>
-          <Route exact path='/' component={Login} />
-          <Route exact path='/warehouses/:warehouseId' component={UserWarehouse} />
-          <Route exact path='/sections/:sectionId' component={UserSection} />
-          <Route exact path='/items' component={UserItems} />
-          <Route path='/items/:id' component={UserItems} />
-        </div>
-      </Router>
-    )
+    <div>
+      <Route exact path='/warehouses/:warehouseId' component={UserWarehouse} />
+      <Route exact path='/sections/:sectionId' component={UserSection} />
+      <Route exact path='/items' component={UserItems} />
+      <Route path='/items/:id' component={UserItems} />
+    </div>
   }
+}
+const App = () => {
+  return (
+    <Router>
+        <Route exact path='/' component={Login} />
+        ${adminState()}
+    </Router>
+  )
 }
 
 export default App;
