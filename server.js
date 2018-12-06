@@ -52,9 +52,9 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use(express.static(path.join(__dirname, 'react-warehouse-app', 'build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'react-warehouse-app', 'build', 'index.html'))
-});
+ app.get('*', (req, res) => {
+   res.sendFile(path.join(__dirname, 'react-warehouse-app', 'build', 'index.html'))
+ });
 
 app.listen(port);
 console.log('Server running at 3001');
