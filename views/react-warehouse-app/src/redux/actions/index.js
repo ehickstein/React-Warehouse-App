@@ -1,11 +1,15 @@
-export const adminAction = () => (
-  {
-    type: 'ADMIN'
-  }
-)
+export function adminAction(){
+  return(
+    {
+      type: 'ADMIN'
+    }
+  )
+}
 
-export const userAction = () => (
-  {
-    type: 'USER'
-  }
-)
+export function userAction(){
+  return(
+    {
+      type: 'USER'
+    }
+  )
+}
