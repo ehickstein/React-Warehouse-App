@@ -9,7 +9,6 @@ const path = require('path');
 const LocalStrategy = require('passport-local').Strategy;
 const registration = require('./config/passport/register');
 const User = require('./models/user');
-const port = process.env.PORT || 3001;
 
 let app = express()
 .use(bodyParser.urlencoded({ extended: false }))
@@ -55,5 +54,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/react-warehouse-app/build/index.html'))
 });
 
-app.listen(port);
-console.log(`Server running at port ${port}`);
+app.listen(process.env.PORT || 3001, function(){
+  console.log(`Server listening on port ${process.env.PORT || 3001}`)
+});
