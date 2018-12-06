@@ -1,4 +1,5 @@
-export function adminAction(){
+
+function adminAction(){
   return(
     {
       type: 'ADMIN'
@@ -6,10 +7,12 @@ export function adminAction(){
   )
 }
 
-export function userAction(){
+function userAction(){
   return(
     {
       type: 'USER'
     }
   )
 }
+
+export default { adminAction, userAction };
