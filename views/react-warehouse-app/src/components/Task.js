@@ -1,8 +1,12 @@
 import React from 'react';
 
 
-const Task = props => {
-  <li className='collection-item'>{props.task}</li>
+export const Task = ({children}) => {
+  <div className='collection-item'>
+    <ul classname='task-list'>
+  {children}
+  </ul>
+  </div>
 }
 
 export default Task;
