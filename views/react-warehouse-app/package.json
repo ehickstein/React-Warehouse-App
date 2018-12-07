@@ -17,6 +17,11 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "react-redux": "^6.0.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
     "redux": "^4.0.1"
   },
   "devDependencies": {},
@@ -39,5 +44,12 @@
   "bugs": {
     "url": "https://github.com/ehickstein/React-Warehouse-App/issues"
   },
-  "homepage": "https://github.com/ehickstein/React-Warehouse-App#readme"
+  "homepage": "https://github.com/ehickstein/React-Warehouse-App#readme",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "proxy": "http://localhost:3001"
 }
