@@ -5,7 +5,7 @@ console.log('hello')
     /* some form validation... */
     User.register({
         username: req.query.username,
-        active: false,
+        isAdmin: req.query.isAdmin,
     },
     req.query.password, function(err, user) {
         res.send(user)
