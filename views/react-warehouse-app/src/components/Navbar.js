@@ -11,7 +11,7 @@ const Navbar = () => {
               className={
                 window.location.pathname === "/warehouses" ? "active" : ""
               }
-            >Warehouses
+            >Home
           </Link>
         </li>
         <li className="tab col s3">
@@ -21,15 +21,6 @@ const Navbar = () => {
                 window.location.pathname === "/tasks" ? "active" : ""
               }
             >Tasks
-          </Link>
-        </li>
-        <li className="tab col s3">
-          <Link
-            to="/login"
-              className={
-                window.location.pathname === "/" ? "active" : ""
-              }
-            >Login
           </Link>
         </li>
       </ul>
