@@ -1,21 +1,18 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
-import API from "../components/utils/API";
+import DeleteBtn from "../DeleteBtn";
+import Jumbotron from "../Jumbotron";
+import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, FormBtn } from "../components/Form";
+import { Col, Row, Container } from "../Grid";
+import { List, ListItem } from "../List";
+import { Input, TextArea, FormBtn } from "../Form";
 
 class Warehouses extends Component {
   state = {
     Warehouses: [],
     Name: "",
-    Sections: "",
-    Items: "",
-    Aisles:"",
-    Notes: ""
-
+    Location:"",
+    Notes:""
 };
 
   componentDidMount() {
@@ -71,7 +68,7 @@ class Warehouses extends Component {
         Location: this.state.Location,
         // Aisles: this.state.Warehouse,
         // Items: this.state.Items,
-        // Section: this.state.Section,
+        // Section: this.state.Section,n 
         // Notes: this.state.Notes
       })
         .then(res => this.getWarehouses())
@@ -81,6 +78,7 @@ class Warehouses extends Component {
 
   render() {
     return (
+      console.log("Works?"),
       <Container fluid>
         <Row>
           <Col size="md-6">
@@ -117,13 +115,13 @@ class Warehouses extends Component {
                handleChange={this.handleInputChange}
                 name="Items"
                 placeholder="Item Name (required)"
-              />
+              />   */}
               <TextArea
                 value={this.state.Notes}
                handleChange={this.handleInputChange}
                 name="Notes"
                 placeholder="Notes (Optional)"
-              /> */}
+              />
               <code>
                 <p>this.state is: {JSON.stringify(this.state)}</p>
                 <p>the value of !(this.state.Warehouses && this.state.Location) is: {JSON.stringify(!(this.state.Warehouse && this.state.Location))}</p>

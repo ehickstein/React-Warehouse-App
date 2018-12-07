@@ -1,4 +1,4 @@
-<Input
+{/* <Input
 value={this.state.Section}
 handleChange={this.handleInputChange}
 name="Section"
@@ -21,4 +21,4 @@ value={this.state.Notes}
 handleChange={this.handleInputChange}
 name="Notes"
 placeholder="Notes (Optional)"
-/>
+/> */}
